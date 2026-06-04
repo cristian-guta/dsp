@@ -26,7 +26,7 @@ const Index = () => {
     title: 'Măsuri de prevenție în sezonul rece',
     excerpt: 'Recomandări pentru prevenirea îmbolnăvirilor specifice sezonului rece și protejarea sănătății în perioada temperaturilor scăzute.',
     date: '10 octombrie 2023',
-    image: '/uploads/aae7e0a3-ea07-494a-86ea-ad96dd7825bc.jpg',
+    image: `${import.meta.env.BASE_URL}aae7e0a3-ea07-494a-86ea-ad96dd7825bc.jpg`,
     url: '/news/2'
   },
   {

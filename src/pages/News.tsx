@@ -14,9 +14,9 @@ const News = () => {
 
   const newsData: { id: number; titleKey: TranslationKey; excerptKey: TranslationKey; dateKey: TranslationKey; image: string; url: string }[] = [
     { id: 1, titleKey: 'news.item1.title', excerptKey: 'news.item1.excerpt', dateKey: 'news.item1.date', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3', url: '/news/1' },
-    { id: 2, titleKey: 'news.item2.title', excerptKey: 'news.item2.excerpt', dateKey: 'news.item2.date', image: '/uploads/dd14b20e-d430-4f6c-bdc2-e548e872d215.jpg', url: '/news/2' },
-    { id: 3, titleKey: 'news.item3.title', excerptKey: 'news.item3.excerpt', dateKey: 'news.item3.date', image: '/uploads/f7a28b21-28cb-4c10-bed4-0c705b1d537c.jpg', url: '/news/3' },
-    { id: 4, titleKey: 'news.item4.title', excerptKey: 'news.item4.excerpt', dateKey: 'news.item4.date', image: '/uploads/73f6aed3-9f58-4310-8ed2-e8af14eb4005.png', url: '/news/4' },
+    { id: 2, titleKey: 'news.item2.title', excerptKey: 'news.item2.excerpt', dateKey: 'news.item2.date', image: `${import.meta.env.BASE_URL}dd14b20e-d430-4f6c-bdc2-e548e872d215.jpg`, url: '/news/2' },
+    { id: 3, titleKey: 'news.item3.title', excerptKey: 'news.item3.excerpt', dateKey: 'news.item3.date', image: `${import.meta.env.BASE_URL}f7a28b21-28cb-4c10-bed4-0c705b1d537c.jpg`, url: '/news/3' },
+    { id: 4, titleKey: 'news.item4.title', excerptKey: 'news.item4.excerpt', dateKey: 'news.item4.date', image: `${import.meta.env.BASE_URL}73f6aed3-9f58-4310-8ed2-e8af14eb4005.png`, url: '/news/4' },
     { id: 5, titleKey: 'news.item5.title', excerptKey: 'news.item5.excerpt', dateKey: 'news.item5.date', image: 'https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3', url: '/news/5' },
     { id: 6, titleKey: 'news.item6.title', excerptKey: 'news.item6.excerpt', dateKey: 'news.item6.date', image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3', url: '/news/6' },
   ];

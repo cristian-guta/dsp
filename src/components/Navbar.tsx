@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-3 md:gap-5 min-w-0">
             <Link to="/" className="flex items-center gap-3 shrink-0">
               <img
-                src="/uploads/47168de5-13a9-4172-9c55-6076babd6cfd.png"
+                src={`${import.meta.env.BASE_URL}47168de5-13a9-4172-9c55-6076babd6cfd.png`}
                 alt="Stema DSP Ilfov"
                 className="h-10 md:h-12 select-none"
               />

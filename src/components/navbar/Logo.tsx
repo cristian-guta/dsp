@@ -11,7 +11,7 @@ const Logo: React.FC<LogoProps> = ({ isLoaded }) => {
   return (
     <Link to="/" className="flex items-center group">
       <img 
-        src="/uploads/47168de5-13a9-4172-9c55-6076babd6cfd.png" 
+        src={`${import.meta.env.BASE_URL}47168de5-13a9-4172-9c55-6076babd6cfd.png`} 
         alt="DSP Ilfov Logo" 
         className="h-12 mr-3 transition-transform duration-300 group-hover:scale-110" 
       />
