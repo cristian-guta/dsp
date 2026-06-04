@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+
+  base: '/dsp/',
+
   plugins: [react()],
   resolve: {
     alias: {
