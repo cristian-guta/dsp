@@ -1,0 +1,23 @@
+# Direcția de Sănătate Publică Ilfov
+
+> Site-ul oficial al Direcției de Sănătate Publică Ilfov (DSP Ilfov), instituție publică ce asigură servicii de sănătate publică, avize, autorizații sanitare, programe de vaccinare și informare a cetățenilor din județul Ilfov.
+
+## Pages
+
+- [Acasă](/): Pagina principală cu prezentarea instituției și ultimele anunțuri.
+- [Știri](/news): Comunicate, anunțuri și noutăți publicate de DSP Ilfov.
+- [Servicii](/services): Serviciile publice oferite de DSP Ilfov.
+- [Contact](/contact): Adresă, telefon, email, program și formular de contact.
+
+## Servicii
+
+- [Avize și autorizații](/services/permits): Emiterea avizelor și autorizațiilor sanitare.
+- [Vaccinare](/services/vaccination): Programe naționale de vaccinare.
+- [Monitorizare](/services/monitoring): Monitorizarea factorilor de risc și a stării de sănătate.
+- [Promovare a sănătății](/services/promotion): Campanii de educație și promovare a sănătății.
+
+## Informații publice
+
+- [Comunicate de presă](/public-info/press): Comunicate oficiale ale instituției.
+- [Cariere](/public-info/jobs): Concursuri și posturi vacante.
+- [Organigrama](/public-info/organigrama): Structura organizatorică a DSP Ilfov.
