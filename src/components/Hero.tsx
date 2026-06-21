@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, FileText, Calendar, Phone, Shield } from 'lucide-react';
-import dspHeroImg from '@/assets/dsp-ilfov-hero.jpg';
-import dspHeroNight from '@/assets/dsp-ilfov-night.png';
+import dspHeroImg from '@/assets/dsp-ilfov-hero-optimized.jpg';
+import dspHeroNight from '@/assets/dsp-ilfov-night-optimized.jpg';
 import euPnrrLogo from '@/assets/eu-pnrr-logo.png';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 const Hero: React.FC = () => {
-  const [opacity, setOpacity] = useState(0);
   const { t } = useLanguage();
-
-  useEffect(() => {
-    let direction = 1;
-    let current = 0;
-    const step = () => {
-      current += direction * 0.004;
-      if (current >= 1) { current = 1; direction = 0; setTimeout(() => { direction = -1; }, 3000); }
-      if (current <= 0) { current = 0; direction = 0; setTimeout(() => { direction = 1; }, 3000); }
-      setOpacity(current);
-      rafId = requestAnimationFrame(step);
-    };
-    let rafId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
 
   return (
     <div className="pt-[108px] md:pt-[116px]">
@@ -79,14 +64,15 @@ const Hero: React.FC = () => {
                 <img
                   src={dspHeroImg}
                   alt={t('hero.heroAltDay')}
-                  className="w-full h-[380px] object-cover absolute inset-0"
-                  style={{ opacity: 1 - opacity }}
+                  className="w-full h-[380px] object-cover absolute inset-0 hero-day-fade"
+                  fetchPriority="high"
+                  decoding="async"
                 />
                 <img
                   src={dspHeroNight}
                   alt={t('hero.heroAltNight')}
-                  className="w-full h-[380px] object-cover"
-                  style={{ opacity }}
+                  className="w-full h-[380px] object-cover hero-night-fade"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gov-navy/60 to-transparent opacity-65" />
               </div>

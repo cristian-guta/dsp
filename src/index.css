@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -158,5 +156,32 @@
   .gov-btn-outline:hover {
     background: hsl(var(--gov-navy));
     color: white;
+  }
+
+  .hero-day-fade {
+    animation: hero-day-fade 12s ease-in-out infinite;
+  }
+
+  .hero-night-fade {
+    animation: hero-night-fade 12s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  @keyframes hero-day-fade {
+    0%, 44%, 100% { opacity: 1; }
+    50%, 94% { opacity: 0; }
+  }
+
+  @keyframes hero-night-fade {
+    0%, 44%, 100% { opacity: 0; }
+    50%, 94% { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-day-fade,
+    .hero-night-fade {
+      animation: none;
+    }
   }
 }

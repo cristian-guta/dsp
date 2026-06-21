@@ -5,6 +5,10 @@ import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import type { TranslationKey } from '@/i18n/translations';
 
+const openPrivacyPolicy = () => {
+  window.dispatchEvent(new Event('dsp:open-privacy-policy'));
+};
+
 const Footer: React.FC = () => {
   const { t } = useLanguage();
 
@@ -96,9 +100,15 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} {t('footer.brand')}. {t('footer.rights')}
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-white/40 hover:text-white/70 transition-colors">{t('footer.privacy')}</a>
-            <a href="#" className="text-xs text-white/40 hover:text-white/70 transition-colors">{t('footer.terms')}</a>
-            <a href="#" className="text-xs text-white/40 hover:text-white/70 transition-colors">{t('footer.gdpr')}</a>
+            <button type="button" onClick={openPrivacyPolicy} className="text-xs text-white/40 hover:text-white/70 transition-colors">
+              {t('footer.privacy')}
+            </button>
+            <button type="button" onClick={openPrivacyPolicy} className="text-xs text-white/40 hover:text-white/70 transition-colors">
+              {t('footer.terms')}
+            </button>
+            <button type="button" onClick={openPrivacyPolicy} className="text-xs text-white/40 hover:text-white/70 transition-colors">
+              {t('footer.gdpr')}
+            </button>
           </div>
         </div>
       </div>
