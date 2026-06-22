@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
 import type { TranslationKey } from '@/i18n/translations';
 
+const getAbsoluteUrl = (path: string) => `${typeof window !== 'undefined' ? window.location.origin : 'https://nexab2b.ro'}${path}`;
+
 interface ServiceItem {
   id: number;
   icon: React.ReactNode;
@@ -17,10 +19,18 @@ interface ServiceItem {
   descKey: TranslationKey;
   fullKey: TranslationKey;
   href?: string;
+  detailHref?: string;
   requirementKeys: TranslationKey[];
   documentKeys: TranslationKey[];
   processKeys: TranslationKey[];
 }
+
+const SERVICE_SCHEMA_ITEMS = [
+  { name: 'Avize și autorizații sanitare', path: '/services/permits' },
+  { name: 'Vaccinare', path: '/services/vaccination' },
+  { name: 'Monitorizare', path: '/services/monitoring' },
+  { name: 'Promovarea sănătății', path: '/services/promotion' },
+] as const;
 
 const Services = () => {
   const { t } = useLanguage();
@@ -43,19 +53,19 @@ const Services = () => {
       requirementKeys: ['svc.prom.s2.i1', 'svc.prom.s2.i2', 'svc.prom.s2.i3'],
       documentKeys: ['svc.prom.s1.i1', 'svc.prom.s1.i2', 'svc.prom.s1.i3'],
       processKeys: ['svc.prom.p1', 'svc.prom.p2', 'svc.prom.p3', 'svc.prom.p4'] },
-    { id: 5, icon: <Shield className="h-5 w-5" />, titleKey: 'services.item.inspection.title', descKey: 'services.item.inspection.desc', fullKey: 'services.item.inspection.full',
+    { id: 5, icon: <Shield className="h-5 w-5" />, titleKey: 'services.item.inspection.title', descKey: 'services.item.inspection.desc', fullKey: 'services.item.inspection.full', detailHref: '/services/permits',
       requirementKeys: ['svc.permits.s1.i1', 'svc.permits.s1.i3'],
       documentKeys: ['svc.permits.s2.i1', 'svc.permits.s2.i5'],
       processKeys: ['svc.permits.p2', 'svc.permits.p3', 'svc.permits.p4'] },
-    { id: 6, icon: <FileCheck className="h-5 w-5" />, titleKey: 'services.item.certificates.title', descKey: 'services.item.certificates.desc', fullKey: 'services.item.certificates.full',
+    { id: 6, icon: <FileCheck className="h-5 w-5" />, titleKey: 'services.item.certificates.title', descKey: 'services.item.certificates.desc', fullKey: 'services.item.certificates.full', detailHref: '/services/vaccination',
       requirementKeys: ['svc.vacc.s2.i3', 'svc.vacc.s2.i4'],
       documentKeys: ['svc.vacc.s2.i1', 'svc.vacc.s2.i2'],
       processKeys: ['svc.vacc.p1', 'svc.vacc.p2', 'svc.vacc.p3'] },
-    { id: 7, icon: <ClipboardList className="h-5 w-5" />, titleKey: 'services.item.statistics.title', descKey: 'services.item.statistics.desc', fullKey: 'services.item.statistics.full',
+    { id: 7, icon: <ClipboardList className="h-5 w-5" />, titleKey: 'services.item.statistics.title', descKey: 'services.item.statistics.desc', fullKey: 'services.item.statistics.full', detailHref: '/services/monitoring',
       requirementKeys: ['svc.mon.s1.i1', 'svc.mon.s1.i2'],
       documentKeys: ['svc.mon.s2.i1', 'svc.mon.s2.i2'],
       processKeys: ['svc.mon.p1', 'svc.mon.p2', 'svc.mon.p3'] },
-    { id: 8, icon: <HandHeart className="h-5 w-5" />, titleKey: 'services.item.community.title', descKey: 'services.item.community.desc', fullKey: 'services.item.community.full',
+    { id: 8, icon: <HandHeart className="h-5 w-5" />, titleKey: 'services.item.community.title', descKey: 'services.item.community.desc', fullKey: 'services.item.community.full', detailHref: '/services/promotion',
       requirementKeys: ['svc.prom.s2.i1', 'svc.prom.s2.i2'],
       documentKeys: ['svc.vacc.s2.i1', 'svc.vacc.s2.i3'],
       processKeys: ['svc.prom.p1', 'svc.prom.p2', 'svc.prom.p3', 'svc.prom.p4'] },
@@ -65,13 +75,15 @@ const Services = () => {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Servicii DSP Ilfov",
-    "itemListElement": [
-      { "@type": "Service", "name": "Avize și autorizații sanitare", "url": "https://localhost:8080/services/permits", "provider": { "@type": "GovernmentOrganization", "name": "DSP Ilfov" } },
-      { "@type": "Service", "name": "Vaccinare", "url": "https://localhost:8080/services/vaccination", "provider": { "@type": "GovernmentOrganization", "name": "DSP Ilfov" } },
-      { "@type": "Service", "name": "Monitorizare", "url": "https://localhost:8080/services/monitoring", "provider": { "@type": "GovernmentOrganization", "name": "DSP Ilfov" } },
-      { "@type": "Service", "name": "Promovarea sănătății", "url": "https://localhost:8080/services/promotion", "provider": { "@type": "GovernmentOrganization", "name": "DSP Ilfov" } }
-    ]
+    "itemListElement": SERVICE_SCHEMA_ITEMS.map((service) => ({
+      "@type": "Service",
+      "name": service.name,
+      "url": getAbsoluteUrl(service.path),
+      "provider": { "@type": "GovernmentOrganization", "name": "DSP Ilfov" }
+    }))
   };
+
+  const selectedServiceHref = selectedService?.detailHref ?? '/contact';
 
   return (
     <Layout>
@@ -163,7 +175,9 @@ const Services = () => {
                 </div>
                 
                 <div className="pt-2 flex justify-center">
-                  <Button className="gov-btn-primary rounded-sm">{t('services.requestService')}</Button>
+                  <Button asChild className="gov-btn-primary rounded-sm">
+                    <Link to={selectedServiceHref}>{t('services.requestService')}</Link>
+                  </Button>
                 </div>
               </div>
             </>

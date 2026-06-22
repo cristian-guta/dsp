@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "localhost:8080";
+const SITE_URL = typeof window !== "undefined" ? window.location.origin : "https://nexab2b.ro";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 interface SEOProps {

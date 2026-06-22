@@ -40,10 +40,10 @@ const Index = () => {
 
 
   const services = [
-  { icon: <FileText className="h-5 w-5" />, title: t('home.svc.permits.title'), description: t('home.svc.permits.desc') },
-  { icon: <Calendar className="h-5 w-5" />, title: t('home.svc.vaccination.title'), description: t('home.svc.vaccination.desc') },
-  { icon: <Activity className="h-5 w-5" />, title: t('home.svc.monitoring.title'), description: t('home.svc.monitoring.desc') },
-  { icon: <Users className="h-5 w-5" />, title: t('home.svc.promotion.title'), description: t('home.svc.promotion.desc') }];
+  { icon: <FileText className="h-5 w-5" />, title: t('home.svc.permits.title'), description: t('home.svc.permits.desc'), href: '/services/permits' },
+  { icon: <Calendar className="h-5 w-5" />, title: t('home.svc.vaccination.title'), description: t('home.svc.vaccination.desc'), href: '/services/vaccination' },
+  { icon: <Activity className="h-5 w-5" />, title: t('home.svc.monitoring.title'), description: t('home.svc.monitoring.desc'), href: '/services/monitoring' },
+  { icon: <Users className="h-5 w-5" />, title: t('home.svc.promotion.title'), description: t('home.svc.promotion.desc'), href: '/services/promotion' }];
 
 
   return (
@@ -95,7 +95,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, i) =>
-            <ServiceCard key={i} icon={service.icon} title={service.title} description={service.description} onClick={() => {}} />
+            <ServiceCard key={i} icon={service.icon} title={service.title} description={service.description} href={service.href} />
             )}
           </div>
           

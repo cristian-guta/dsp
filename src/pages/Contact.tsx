@@ -7,6 +7,8 @@ import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import type { TranslationKey } from '@/i18n/translations';
 
+const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://nexab2b.ro';
+
 const Contact = () => {
   const { t } = useLanguage();
   const dspLocation = {
@@ -40,7 +42,7 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "GovernmentOffice",
     "name": "Direcția de Sănătate Publică Ilfov",
-    "url": "localhost:8080",
+    "url": siteUrl,
     "telephone": "+40-21-224-45-96",
     "email": "office@dspilfov.ro",
     "address": {
