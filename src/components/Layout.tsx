@@ -2,7 +2,6 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import DeferredAIChatWidget from './DeferredAIChatWidget';
 import CookieConsentBanner from './CookieConsentBanner';
 
 interface LayoutProps {
@@ -17,7 +16,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
-      <DeferredAIChatWidget />
       <CookieConsentBanner />
     </div>
   );

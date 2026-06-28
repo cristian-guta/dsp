@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./i18n/LanguageContext";
-import { AssistantProvider } from "./context/AssistantContext";
 
 const Index = lazy(() => import("./pages/Index"));
 const News = lazy(() => import("./pages/News"));
@@ -27,7 +26,6 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
-      <AssistantProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -52,7 +50,6 @@ const App = () => (
           </Suspense>
       </BrowserRouter>
       </TooltipProvider>
-      </AssistantProvider>
     </LanguageProvider>
   </QueryClientProvider>
 );
