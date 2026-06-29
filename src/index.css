@@ -185,3 +185,73 @@
     }
   }
 }
+
+/* ===== Accessibility widget ===== */
+
+:root {
+  --a11y-font-scale: 1;
+}
+
+html {
+  font-size: calc(100% * var(--a11y-font-scale));
+}
+
+/* High contrast mode */
+.a11y-high-contrast {
+  filter: contrast(1.15);
+}
+
+.a11y-high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.a11y-high-contrast img,
+.a11y-high-contrast svg {
+  filter: contrast(1.1) brightness(1.05);
+}
+
+.a11y-high-contrast a {
+  color: #ffd000 !important;
+}
+
+.a11y-high-contrast button,
+.a11y-high-contrast [role="button"] {
+  outline: 2px solid #fff !important;
+}
+
+/* Underline all links for low-vision users who rely on shape, not color */
+.a11y-underline-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+}
+
+/* Dyslexia-friendly font stack */
+.a11y-dyslexia-font body,
+.a11y-dyslexia-font p,
+.a11y-dyslexia-font span,
+.a11y-dyslexia-font li,
+.a11y-dyslexia-font h1,
+.a11y-dyslexia-font h2,
+.a11y-dyslexia-font h3,
+.a11y-dyslexia-font h4 {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif !important;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+}
+
+/* Pause animations / transitions for vestibular sensitivity */
+.a11y-pause-animations *,
+.a11y-pause-animations *::before,
+.a11y-pause-animations *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Visible focus ring for keyboard navigation, always on regardless of toggles */
+body:not(.a11y-high-contrast) *:focus-visible {
+  outline: 3px solid hsl(var(--gov-gold)) !important;
+  outline-offset: 2px !important;
+}

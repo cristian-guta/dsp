@@ -24,6 +24,19 @@ export const translations = {
     'nav.openMenu': 'Deschide meniul',
     'nav.closeMenu': 'Închide meniul',
 
+    // Accessibility
+    'a11y.title': 'Accesibilitate',
+    'a11y.fontSize': 'Mărime text',
+    'a11y.increase': 'Crește textul',
+    'a11y.decrease': 'Micșorează textul',
+    'a11y.highContrast': 'Contrast ridicat',
+    'a11y.underlineLinks': 'Subliniază linkurile',
+    'a11y.dyslexiaFont': 'Font pentru dislexie',
+    'a11y.pauseAnimations': 'Oprește animațiile',
+    'a11y.reset': 'Resetează setările',
+    'a11y.openMenu': 'Deschide meniul de accesibilitate',
+    'a11y.closeMenu': 'Închide meniul de accesibilitate',
+
     // Brand
     'brand.line1': 'Direcția de Sănătate Publică',
     'brand.line2': 'a Județului Ilfov',
@@ -421,6 +434,19 @@ export const translations = {
     'nav.appointment': 'Online Appointment',
     'nav.openMenu': 'Open menu',
     'nav.closeMenu': 'Close menu',
+
+    // Accessibility
+    'a11y.title': 'Accessibility',
+    'a11y.fontSize': 'Text size',
+    'a11y.increase': 'Increase text size',
+    'a11y.decrease': 'Decrease text size',
+    'a11y.highContrast': 'High contrast',
+    'a11y.underlineLinks': 'Underline links',
+    'a11y.dyslexiaFont': 'Dyslexia-friendly font',
+    'a11y.pauseAnimations': 'Pause animations',
+    'a11y.reset': 'Reset settings',
+    'a11y.openMenu': 'Open accessibility menu',
+    'a11y.closeMenu': 'Close accessibility menu',
 
     // Brand
     'brand.line1': 'Public Health Directorate',
